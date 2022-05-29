@@ -4,25 +4,26 @@ const inputBox = document.getElementById("inputBox");
 const myList = "1234567890abcdefghijklmnoprstuvyzwqxxABCDEFGHIJKLMNOPRSTUVYZWQX";
 const list = myList.split("");
 
-let totalResult;
 
+let total=[]
 function refresh() {
-  r1 = Math.floor(Math.random() * myList.length);
-  r2 = Math.floor(Math.random() * myList.length);
-  r3 = Math.floor(Math.random() * myList.length);
-  r4 = Math.floor(Math.random() * myList.length);
-  r5 = Math.floor(Math.random() * myList.length);
-  totalResult = (result.innerHTML = `${list[r1]}${list[r2]}${
-    list[r3]
-  }${list[r4]}${list[r5]}`);
-  console.log(totalResult);
-  
- 
+
+let randomIndex;
+total=[]
+for(let i=0; i<6; i++){
+randomIndex= Math.floor(Math.random()*list.length)
+
+total.push(list[randomIndex])
+result.innerHTML=total.join("");
+console.log(total);
 }
+
+}
+
 function send() {
-    if (inputBox.value == totalResult) {
+    if (inputBox.value == total.join("")) {
       alert("Successful");
-    } else if (inputBox.value !== totalResult) {
+    } else {
     alert("Hopps!!! Unsuccessful, Try again");
     refresh()
     }
